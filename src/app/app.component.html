@@ -1,0 +1,38 @@
+<!-- app.component.html -->
+
+<div *ngIf="isLoggedIn; else loginTemplate">
+    <!-- Header Section (Navigation, User Info, etc.) -->
+    <header>
+      <h1>Welcome to Movie Booking Application</h1>
+      <nav>
+        <ul>
+          <li><a routerLink="/movies">Movies</a></li>
+          <li><a routerLink="/seat-selection">Seat Selection</a></li>
+          <!-- Add more navigation links as needed -->
+        </ul>
+        <div *ngIf="isAdmin">
+          <a routerLink="/admin">Admin Panel</a>
+        </div>
+        <div class="user-info">
+          <span>Welcome, {{ currentUser.name }}</span>
+          <button (click)="logout()">Logout</button>
+        </div>
+      </nav>
+    </header>
+  
+    <!-- Main Content Area -->
+    <main>
+      <router-outlet></router-outlet>
+      <!-- This is where Angular will inject the content of the currently active route -->
+    </main>
+  
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2024 Movie Booking Application. All rights reserved.</p>
+    </footer>
+  </div>
+  
+  <ng-template #loginTemplate>
+    <app-login (loginSuccess)="handleLoginSuccess($event)"></app-login>
+  </ng-template>
+  

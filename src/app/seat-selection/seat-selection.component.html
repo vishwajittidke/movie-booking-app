@@ -1,0 +1,12 @@
+<div class="seat-selection-container">
+    <h2>Seat Selection - {{ screenName }}</h2>
+  
+    <div *ngFor="let row of rows" class="seat-row">
+      <div *ngFor="let seatNumber of seatsArray(seatsPerRow); let index" class="seat"
+           [ngClass]="{ 'selected': isSeatSelected(row, index + 1) }"
+           (click)="selectSeat(row, index + 1)">
+        {{ row }}-{{ index + 1 }}
+      </div>
+    </div>
+  </div>
+  

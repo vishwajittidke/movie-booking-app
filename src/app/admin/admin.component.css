@@ -1,0 +1,31 @@
+.admin-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+  }
+  
+  .admin-actions {
+    margin-bottom: 20px;
+  }
+  
+  .admin-actions button {
+    margin-right: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .admin-actions button:hover {
+    background-color: #0056b3;
+  }
+  
+  .admin-content {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  

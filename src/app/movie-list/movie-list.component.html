@@ -1,0 +1,10 @@
+ <div class="movie-list">
+    <div class="movie-card" *ngFor="let movie of movies">
+      <img [src]="movie.poster" alt="{{ movie.title }}">
+      <h3>{{ movie.title }}</h3>
+      <p>{{ movie.genre }}</p>
+    </div>
+  </div>
+
+
+

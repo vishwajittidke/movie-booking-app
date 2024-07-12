@@ -1,0 +1,28 @@
+<!-- HTML template for booking component -->
+
+<div class="booking-container">
+    <div class="movie-details">
+      <h2 class="movie-title">{{ movie.title }}</h2>
+      <p class="movie-genre">{{ movie.genre }}</p>
+      <p>Showtime: {{ movie.showtime }}</p>
+    </div>
+  
+    <div class="seat-map">
+      <div
+        class="seat"
+        *ngFor="let seat of seats; let i = index"
+        [class.selected]="selectedSeats.includes(i)"
+        [class.booked]="seat.booked"
+        (click)="toggleSeat(i)"
+      >
+        {{ i + 1 }}
+      </div>
+    </div>
+  
+    <div class="payment-section" *ngIf="selectedSeats.length > 0">
+      <button class="payment-button" (click)="confirmBooking()">Proceed to Payment</button>
+    </div>
+  
+    <p class="confirmation-message" *ngIf="bookingConfirmed">{{ confirmationMessage }}</p>
+  </div>
+  

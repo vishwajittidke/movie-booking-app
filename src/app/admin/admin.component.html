@@ -1,0 +1,43 @@
+<div class="admin-container">
+    <h1>{{ title }}</h1>
+  
+    <div class="admin-actions">
+      <button (click)="manageUsers()">Manage Users</button>
+      <button (click)="viewReports()">View Reports</button>
+    </div>
+  
+    <div class="admin-content">
+      <div *ngIf="selectedUser">
+        <h2>User Details</h2>
+        <p>Name: {{ selectedUser.name }}</p>
+        <p>Email: {{ selectedUser.email }}</p>
+        <p>Role: {{ selectedUser.role }}</p>
+        <button (click)="deleteUser(selectedUser.id)">Delete User</button>
+      </div>
+  
+      <div *ngIf="selectedReport">
+        <h2>Report Details</h2>
+        <p>Title: {{ selectedReport.title }}</p>
+        <p>Date: {{ selectedReport.date }}</p>
+        <p>Content: {{ selectedReport.content }}</p>
+        <button (click)="deleteReport(selectedReport.id)">Delete Report</button>
+      </div>
+  
+      <div *ngIf="!selectedUser && !selectedReport">
+        <h2 *ngIf="users.length > 0">User List</h2>
+        <ul *ngIf="users.length > 0">
+          <li *ngFor="let user of users" (click)="selectUser(user)">
+            {{ user.name }} ({{ user.email }})
+          </li>
+        </ul>
+  
+        <h2 *ngIf="reports.length > 0">Report List</h2>
+        <ul *ngIf="reports.length > 0">
+          <li *ngFor="let report of reports" (click)="selectReport(report)">
+            {{ report.title }} ({{ report.date }})
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
