@@ -3,10 +3,13 @@ import { Routes } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
-import { MovieListComponent } from './movie-list/movie-list.component';
+// import { MovieListComponent } from './movie-list/movie-list.component';
 import { BookingComponent } from './booking/booking.component';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { MovieListComponent } from './movie-list/movie-list.component';
+import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
+
 
 export const routes: Routes = [
     { path: '', component: LoginComponent },
@@ -16,5 +19,7 @@ export const routes: Routes = [
     { path: 'admin', component: AdminComponent },
     { path: 'movie-list', component: MovieListComponent },
     { path: 'booking', component: BookingComponent },
+    { path: 'payment', component: PaymentGatewayComponent },
     { path: '**', redirectTo: '' } // Wildcard route for a 404 page, can be customized
   ];
+  

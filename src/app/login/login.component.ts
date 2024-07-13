@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { Router, RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, createUrlTreeFromSnapshot, Router, RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,20 +19,35 @@ import { Router, RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from
     RouterLinkActive
   ]
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted: boolean = false;
+  returnUrl!: string;
   
-  constructor(private formBuilder: FormBuilder, private router : Router) {
+  constructor(private formBuilder: FormBuilder, private router : Router, private route : ActivatedRoute) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
   }
 
+  ngOnInit(): void {
+    // Accessing a query parameter
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  }
+
   // Getter for easy access to form controls
   get formControls() {
     return this.loginForm.controls;
+  }
+
+  onLoginSubmit(): void {
+    // Logic to handle login submission
+    this.onLoginSuccess();
+  }
+
+  onLoginSuccess(): void {
+    this.router.navigateByUrl(this.returnUrl);
   }
 
   onSubmit(): void {
@@ -48,10 +63,12 @@ export class LoginComponent {
     // Reset the form
     this.loginForm.reset();
     this.submitted = false;
-    // this.router.navigate(['/home']);
+    this.router.navigate(['/movie-list']);
   }
-
-  goToRegister() {
-    return '/register';
+  
+  navigateToRegister() {
+    const snapshot: ActivatedRouteSnapshot = this.route.snapshot;
+    const urlTree = createUrlTreeFromSnapshot(snapshot, ['register']);
+    this.router.navigateByUrl(urlTree);
   }
 }

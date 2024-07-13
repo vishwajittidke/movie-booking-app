@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Screen = require('../models/Screen'); // Assuming you have a Screen model
 const Movie = require('../models/Movie'); // Assuming you have a Movie model
-const MenuItem = require('../models/Menu'); // Assuming you have a Menu/MenuItem model
+// const MenuItem = require('../models/Menu'); // Assuming you have a Menu/MenuItem model
 
 // POST /api/admin/screens - Create a new screen
 router.post('/screens', (req, res) => {

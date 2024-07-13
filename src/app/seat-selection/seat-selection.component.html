@@ -8,5 +8,6 @@
         {{ row }}-{{ index + 1 }}
       </div>
     </div>
+    <button (click)="proceedToShowtimeSelection()" [disabled]="selectedSeats.length === 0">Proceed to Showtime Selection</button>
   </div>
   

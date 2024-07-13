@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, createUrlTreeFromSnapshot, Router, RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -23,7 +23,7 @@ export class RegisterComponent {
   submitted: boolean = false;
 
 
-  constructor(private formBuilder: FormBuilder, private router : Router) {
+  constructor(private formBuilder: FormBuilder, private router : Router, private route : ActivatedRoute) {
     this.registerForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -69,6 +69,10 @@ export class RegisterComponent {
   }
 
   goToLogin() {
-    this.router.navigate(['/login']);
+    const snapshot: ActivatedRouteSnapshot = this.route.snapshot;
+    const urlTree = createUrlTreeFromSnapshot(snapshot, ['login']);
+    this.router.navigateByUrl(urlTree);
+    // this.router.navigate(['/login']);
   }
+
 }

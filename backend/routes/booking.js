@@ -3,7 +3,7 @@ const router = express.Router();
 const Booking = require('../models/Booking'); // Assuming you have a Booking model
 
 // POST /api/bookings - Create a new booking
-router.post('/', (req, res) => {
+router.post('/booking', (req, res) => {
   const { userId, movieId, seats, totalPrice, status } = req.body;
 
   // Example: Create a new booking instance

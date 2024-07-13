@@ -1,5 +1,6 @@
 // admin.js - Controller for admin functionalities
-
+const express = require('express');
+const router = express.Router();
 // Placeholder screen data (in a real application, use a database)
 let screens = [
     { id: 1, name: 'Screen 1', seats: 60 },
@@ -35,8 +36,15 @@ let screens = [
   };
   
   // Manage food menu
-  exports.manageFoodMenu = (req, res) => {
-    // Placeholder logic to manage food menu (add, update, delete items)
-    res.json({ message: 'Manage food menu functionality' });
+  // exports.manageFoodMenu = (req, res) => {
+  //   // Placeholder logic to manage food menu (add, update, delete items)
+  //   res.json({ message: 'Manage food menu functionality' });
+  // };
+
+  module.exports = {
+    getAllScreens,
+    updateScreen,
+    manageBookings
+    // manageFoodMenu
   };
   

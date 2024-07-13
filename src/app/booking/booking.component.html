@@ -2,6 +2,7 @@
 
 <div class="booking-container">
     <div class="movie-details">
+      <img [src]="movie.image" alt="{{ movie.title }}" class="movie-image">
       <h2 class="movie-title">{{ movie.title }}</h2>
       <p class="movie-genre">{{ movie.genre }}</p>
       <p>Showtime: {{ movie.showtime }}</p>
@@ -19,10 +20,15 @@
       </div>
     </div>
   
-    <div class="payment-section" *ngIf="selectedSeats.length > 0">
+    <!-- <div class="payment-section" *ngIf="selectedSeats.length > 0">
       <button class="payment-button" (click)="confirmBooking()">Proceed to Payment</button>
-    </div>
+    </div> -->
   
     <p class="confirmation-message" *ngIf="bookingConfirmed">{{ confirmationMessage }}</p>
+
+    <div class="payment-section" *ngIf="selectedSeats.length > 0">
+      <button class="payment-button" (click)="proceedToPayment()">Proceed to Payment</button>
+    </div>
+    
   </div>
   

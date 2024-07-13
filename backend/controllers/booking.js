@@ -1,4 +1,6 @@
 // booking.js - Controller for booking functionalities
+const express = require('express');
+const router = express.Router();
 
 // Placeholder movie data (in a real application, use a database)
 let movies = [
@@ -7,12 +9,12 @@ let movies = [
   ];
   
   // Get all movies
-  exports.getAllMovies = (req, res) => {
+  const getAllMovies = (req, res) => {
     res.json(movies);
   };
   
   // Get movie by ID
-  exports.getMovieById = (req, res) => {
+  const getMovieById = (req, res) => {
     const movieId = parseInt(req.params.id);
     const movie = movies.find(movie => movie.id === movieId);
     if (!movie) {
@@ -22,7 +24,7 @@ let movies = [
   };
   
   // Reserve tickets for a movie
-  exports.reserveTickets = (req, res) => {
+  const reserveTickets = (req, res) => {
     const { movieId, seats, numberOfTickets } = req.body;
   
     // Placeholder logic for ticket reservation (in a real application, integrate with payment gateway)
@@ -36,3 +38,9 @@ let movies = [
     res.json({ message: 'Tickets reserved successfully', reservationDetails });
   };
   
+
+  module.exports = {
+    getAllMovies,
+    getMovieById,
+    reserveTickets
+  };

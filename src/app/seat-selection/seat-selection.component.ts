@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-seat-selection',
@@ -19,7 +20,7 @@ export class SeatSelectionComponent implements OnInit {
   seatsPerRow: number = 10; // Example seats per row
   selectedSeats: string[] = [];
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
     // Initialize component
@@ -46,5 +47,10 @@ export class SeatSelectionComponent implements OnInit {
   // Method to create an array of specified length
   seatsArray(length: number): number[] {
     return Array.from({ length }, (_, index) => index + 1);
+  }
+
+  proceedToShowtimeSelection(): void {
+    // Store the selected seats in a service or state management
+    this.router.navigate(['/showtime-selection'], { state: { selectedSeats: this.selectedSeats } });
   }
 }

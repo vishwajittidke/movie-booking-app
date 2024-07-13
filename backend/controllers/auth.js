@@ -1,11 +1,12 @@
 // auth.js - Controller for user authentication
-
+const express = require('express');
+const router = express.Router();
 
 // Placeholder user data (in a real application, use a database)
 let users = [];
 
 // Register a new user
-exports.register = (req, res) => {
+const register = (req, res) => {
   const { name, email, password } = req.body;
 
   // Simple validation (in a real application, use more robust validation)
@@ -26,7 +27,7 @@ exports.register = (req, res) => {
 };
 
 // Login user
-exports.login = (req, res) => {
+const login = (req, res) => {
   const { email, password } = req.body;
 
   // Simple validation (in a real application, use more robust validation)
@@ -41,4 +42,10 @@ exports.login = (req, res) => {
   }
 
   res.json({ message: 'Login successful', user });
+};
+
+// Export the functions for use in routes
+module.exports = {
+  register,
+  login
 };
