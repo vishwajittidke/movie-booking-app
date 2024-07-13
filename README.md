@@ -9,7 +9,7 @@ and communicate with the backend API. The frontend code is written in TypeScript
 for the design and layout of the application. The code is organized into components, services, and modules
 to make it easy to understand and maintain.
 
-Locate to the Frontend Folder
+# Locate to the Frontend Folder
 
 
 ## Development server
