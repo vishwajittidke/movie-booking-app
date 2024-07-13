@@ -30,7 +30,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 
 
-# Locate to the Frontend folder
+# Locate to the Backend folder
 
 1. Change directory using cd ./backend
 2. To start the server Enter `node server.js`
