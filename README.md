@@ -1,4 +1,4 @@
-# MovieBookingApp
+'# MovieBookingApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
 
@@ -34,4 +34,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 1. Change directory using cd ./backend
 2. To start the server Enter `node server.js`
-3. To stop the server Enter `Ctrl + C`
+3. To stop the server Enter `Ctrl + C`'
