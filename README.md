@@ -4,6 +4,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Frontend Folder
 
+This folder contains the frontend code for the MovieBookingApp. It uses Angular to build the user interface
+and communicate with the backend API. The frontend code is written in TypeScript and uses Angular Material
+for the design and layout of the application. The code is organized into components, services, and modules
+to make it easy to understand and maintain.
+
+Locate to the Frontend Folder
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
